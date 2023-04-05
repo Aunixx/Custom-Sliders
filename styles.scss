@@ -205,6 +205,9 @@ body {
           justify-content: flex-start;
           align-items: center;
         }
+        @media (max-width: 600px) {
+          transform: translate(0);
+        }
         .slide {
           margin: 0 10px;
           visibility: hidden;
@@ -215,6 +218,9 @@ body {
             height: 255px;
             flex: 1 0 15%;
             visibility: visible;
+            @media (max-width: 600px) {
+              visibility: hidden;
+            }
           }
           &.middle-slide {
             max-width: 250px;

@@ -127,11 +127,46 @@ prevBtn2.addEventListener("click", () => {
   } else {
     slides2.style.transform = `translateX(-${(currentIndex2 - 2) * 16}%)`;
   }
+  if (window.innerWidth < 1024 && window.innerWidth > 600) {
+    if (currentIndex2 < 1) {
+      slides2.style.transform = `translateX(${230}px)`;
+    } else if (currentIndex2 < 2) {
+      slides2.style.transform = `translateX(${100}px)`;
+    } else {
+      slides2.style.transform = `translateX(-${
+        ((currentIndex2 - 2) * window.innerWidth) / 6
+      }px`;
+    }
+  } else if (window.innerWidth < 600 && window.innerWidth > 500) {
+    if (currentIndex2 < 1) {
+      slides2.style.transform = `translateX(-${0}px`;
+    } else {
+      slides2.style.transform = `translateX(-${
+        100 + currentIndex2 * (window.innerWidth / 6)
+      }px`;
+    }
+  } else if (window.innerWidth < 500) {
+    if (currentIndex2 < 1) {
+      slides2.style.transform = `translateX(-${0}px`;
+    } else {
+      slides2.style.transform = `translateX(-${
+        100 + currentIndex2 * (window.innerWidth / 5.5)
+      }px`;
+    }
+  } else {
+    if (currentIndex2 < 2) {
+      slides2.style.transform = `translateX(${currentIndex2 * 230}px)`;
+    } else if (currentIndex2 < 3) {
+      slides2.style.transform = `translateX(${4}%)`;
+    } else {
+      slides2.style.transform = `translateX(-${(currentIndex2 - 2) * 180}px`;
+    }
+  }
 });
 
 nextBtn2.addEventListener("click", () => {
   currentIndex2++;
-  if (currentIndex2 > slide2.length - 1 && window.innerWidth > 768) {
+  if (currentIndex2 > slide2.length - 1) {
     currentIndex2 = slide2.length - 1;
   }
 
@@ -155,12 +190,36 @@ nextBtn2.addEventListener("click", () => {
     }
   });
 
-  if (currentIndex2 < 2) {
-    slides2.style.transform = `translateX(${currentIndex2 * 230}px)`;
-  } else if (currentIndex2 < 3) {
-    slides2.style.transform = `translateX(${4}%)`;
+  if (window.innerWidth < 1024 && window.innerWidth > 600) {
+    if (currentIndex2 < 2) {
+      slides2.style.transform = `translateX(${window.innerWidth / 8}px)`;
+    } else if (currentIndex2 < 3) {
+      slides2.style.transform = `translateX(${0}%)`;
+    } else {
+      slides2.style.transform = `translateX(-${
+        ((currentIndex2 - 2) * window.innerWidth) / 6
+      }px`;
+    }
+  } else if (window.innerWidth < 600 && window.innerWidth > 500) {
+    slides2.style.transform = `translateX(-${
+      100 + currentIndex2 * (window.innerWidth / 6)
+    }px`;
+  } else if (window.innerWidth < 500 && window.innerWidth > 400) {
+    slides2.style.transform = `translateX(-${
+      100 + currentIndex2 * (window.innerWidth / 5.8)
+    }px`;
+  } else if (window.innerWidth < 400) {
+    slides2.style.transform = `translateX(-${
+      100 + currentIndex2 * (window.innerWidth / 5.5)
+    }px`;
   } else {
-    slides2.style.transform = `translateX(-${(currentIndex2 - 2) * 180}px`;
+    if (currentIndex2 < 2) {
+      slides2.style.transform = `translateX(${currentIndex2 * 230}px)`;
+    } else if (currentIndex2 < 3) {
+      slides2.style.transform = `translateX(${4}%)`;
+    } else {
+      slides2.style.transform = `translateX(-${(currentIndex2 - 2) * 180}px`;
+    }
   }
 });
 
